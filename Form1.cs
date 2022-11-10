@@ -1,3 +1,5 @@
+using Algorithm_Sort.NotPractical;
+
 namespace Algorithm_Sort
 {
     public partial class Form1 : Form
@@ -9,7 +11,8 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            GnomeSortExecute gnomeSortExecute= new GnomeSortExecute();
+            gnomeSortExecute.Execute();
         }
     }
 }
