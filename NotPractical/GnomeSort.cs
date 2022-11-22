@@ -3,7 +3,7 @@
     public class GnomeSortExecute
     {
         /// <summary>
-        /// 侏儒排序執行實例: 預期回傳92, 59, 39, 38, 26 ,17
+        /// 侏儒排序執行實例: 預期回傳17, 26, 38, 39, 59, 92
         /// </summary>
         public void Execute()
         {
@@ -33,7 +33,7 @@
                
                 for (int innerIndex = 0; innerIndex < index + 1; innerIndex++)
                 {
-                    if (items[index].CompareTo(items[innerIndex]) > 0)
+                    if (items[index].CompareTo(items[innerIndex]) < 0)
                     {
                         temp = items[index];
                         items[index] = items[innerIndex];

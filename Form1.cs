@@ -11,7 +11,10 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GnomeSortExecute gnomeSortExecute= new GnomeSortExecute();
+            var bogoExecute = new BogoSortExecute();
+            bogoExecute.Execute();
+
+            var gnomeSortExecute= new GnomeSortExecute();
             gnomeSortExecute.Execute();
         }
     }

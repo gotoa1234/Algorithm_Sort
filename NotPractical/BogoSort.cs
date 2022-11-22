@@ -3,7 +3,7 @@
     public class BogoSortExecute
     {
         /// <summary>
-        /// Bogo排序執行實例: 預期回傳92, 59, 39, 38, 26 ,17
+        /// Bogo排序執行實例: 預期回傳17, 26, 38, 39, 59, 92
         /// </summary>
         public void Execute()
         {
@@ -63,7 +63,7 @@
         {
             for (int index = 0; index < items.Count - 1; index++)
             {
-                if (items[index].CompareTo(items[index + 1]) < 0)
+                if (items[index].CompareTo(items[index + 1]) > 0)
                 {
                     return false;
                 }
