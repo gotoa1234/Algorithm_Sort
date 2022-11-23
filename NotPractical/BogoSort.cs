@@ -31,7 +31,7 @@
         /// <returns>倒序的陣列 EX: [5,4,3,2,1]</returns>
         public List<T> BogoSorting(List<T> items)
         {
-            while (!IsDescendingSort(ref items))
+            while (!IsAscendingSort(ref items))
             {
                 Shuffle(ref items);
             }
@@ -59,7 +59,7 @@
         /// 是否為降序排序 Descending
         /// </summary>
         /// <returns></returns>
-        private static bool IsDescendingSort(ref List<T> items)
+        private static bool IsAscendingSort(ref List<T> items)
         {
             for (int index = 0; index < items.Count - 1; index++)
             {

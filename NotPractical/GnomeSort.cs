@@ -9,7 +9,7 @@
         {
             List<int> inputItem = new() { 92, 17, 38, 59, 26, 39 };
             var bogoSort = new GnomeSort<int>();
-            var result = bogoSort.GnomeDescendingSorting(inputItem);
+            var result = bogoSort.GnomeAscendingSorting(inputItem);
         }
     }
 
@@ -25,7 +25,7 @@
     /// <typeparam name="T"></typeparam>
     public class GnomeSort<T> where T : IComparable
     {
-        public List<T> GnomeDescendingSorting(List<T> items)
+        public List<T> GnomeAscendingSorting(List<T> items)
         {
             T temp;
             for (int index = 0; index < items.Count(); index++)

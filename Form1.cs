@@ -16,6 +16,9 @@ namespace Algorithm_Sort
 
             var gnomeSortExecute= new GnomeSortExecute();
             gnomeSortExecute.Execute();
+
+            var stoogeExecute = new StoogeSortExecute();
+            stoogeExecute.Execute();
         }
     }
 }
