@@ -1,4 +1,5 @@
 using Algorithm_Sort.NotPractical;
+using Algorithm_Sort.Practical;
 
 namespace Algorithm_Sort
 {
@@ -19,6 +20,9 @@ namespace Algorithm_Sort
 
             var stoogeExecute = new StoogeSortExecute();
             stoogeExecute.Execute();
+
+            var bubbleExecute = new BubbleSortExecute();
+            bubbleExecute.Execute();
         }
     }
 }
