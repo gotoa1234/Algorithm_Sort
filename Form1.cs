@@ -12,6 +12,9 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var insertionExecute = new InsertionSortExecute();
+            insertionExecute.Execute();
+
             var panCakeExecute = new PancakeSortExecute();
             panCakeExecute.Execute();
 
