@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithm_Sort.Practical
+﻿namespace Algorithm_Sort.Practical
 {
     /// <summary>
     /// 執行實例: 預期回傳17, 26, 38, 39, 59, 92
@@ -12,22 +6,65 @@ namespace Algorithm_Sort.Practical
     public class BucketSortExecute
     {
         public void Execute()
-        { 
-        
+        {
+            List<int> inputItem = new() { 92, 17, 38, 59, 26, 39 };
+            var execute = new BucketSort<int>();
+            execute.BuckAscendingSorting(inputItem);
         }
     }
 
     /// <summary>
-    /// 桶排序 - Bucket Sort
-    /// Time Complex : O(n + k) k = 桶子數
+    /// 桶排序 - Bucket Sort 
+    ///   注意 => k = 桶子數
+    /// Time Complex : O(n + k) 
     ///        Space : O(n * k)
     ///    Best Time : O(n)
     ///   Worst Time : O(n^2) ※最壞所有的值都丟入同一個桶
     ///         原理 : 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BucketSort<T> where T : IComparable
-    { 
-    
+    public class BucketSort<T> where T : IComparable, IConvertible
+    {
+        private readonly static int _bucketCount = 10;
+
+        public List<T> BuckAscendingSorting(List<T> items)
+        {
+            //1. 決定每個桶子放的區間
+            var min = (dynamic)items.Min();
+            var bucketSize = GetRegionSize(ref items);
+            var buckets = new List<List<T>>();
+            for (int index = 0; index < _bucketCount; index++)
+                buckets.Add(new List<T>());
+            //2. 將值放進對應的桶子內
+            for (int index = 0; index < items.Count; index++)
+            {
+                var value = Convert.ToInt32(items[index]) - min;
+                var putIndex = (value / bucketSize - 1) < 0 ? 0 : (value / bucketSize - 1);
+                buckets[putIndex].Add(items[index]);
+            }          
+            //3. 桶子內排序 + 組成對應的結果
+            items.Clear();
+            foreach (var bucketItem in buckets)
+            {
+                //Quick sort 排序每個桶子 耗費 O( k * nlogn)
+                bucketItem.Sort();
+                items.AddRange(bucketItem);
+            }
+            return items;
+        }
+
+        private int GetRegionSize(ref List<T> items)
+        {
+            try
+            {
+                var max = items.Max();
+                var min = items.Min();
+                return ((dynamic)max - (dynamic)min) / _bucketCount;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }
