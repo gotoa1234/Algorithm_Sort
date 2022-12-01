@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// 是否為降序排序 Descending
+        /// 是否為升序排序
         /// </summary>
         /// <returns></returns>
         private static bool IsAscendingSort(ref List<T> items)

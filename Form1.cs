@@ -12,6 +12,9 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var mergeSort = new MergeSortExecute();
+            mergeSort.Execute();
+
             var countionSort = new CountingSortExecute();
             countionSort.Execute();
 
