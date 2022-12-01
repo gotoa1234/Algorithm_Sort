@@ -12,6 +12,9 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var binaryTreeSort = new BinaryTreeSortExecute();
+            binaryTreeSort.Execute();
+
             var mergeSort = new MergeSortExecute();
             mergeSort.Execute();
 
