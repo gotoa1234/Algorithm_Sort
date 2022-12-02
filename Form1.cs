@@ -12,6 +12,9 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var radixSortExecute = new RadixSortExecute();
+            radixSortExecute.Execute();
+
             var binaryTreeSort = new BinaryTreeSortExecute();
             binaryTreeSort.Execute();
 
