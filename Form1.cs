@@ -12,6 +12,10 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            var librarySortExecute = new LibrarySortExecute();
+            librarySortExecute.Execute();
+
             var radixSortExecute = new RadixSortExecute();
             radixSortExecute.Execute();
 
