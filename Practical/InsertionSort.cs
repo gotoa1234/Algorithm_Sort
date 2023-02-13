@@ -16,7 +16,7 @@
     /// <summary>
     /// 插入排序 - Insertion Sort
     /// Time Complex : O(n^2)
-    ///        Space : O(1) or O(n)
+    ///        Space : O(1)
     ///    Best Time : O(n)
     ///   Worst Time : O(n^2)
     ///         原理 : 遍歷n，由第2個元素(X)開始，比對前(X-1)元素，當比當前X小的值，則進行元素往前遞移 
