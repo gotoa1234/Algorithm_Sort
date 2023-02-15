@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithm_Sort.Practical
+﻿namespace Algorithm_Sort.Practical
 {
     public class BinaryTreeSortExecute
     {
         public void Execute()
         {
             List<int> inputItem = new() { 92, 17, 38, 59, 26, 39 };
-            var tree = new BinaryTree(inputItem.ToArray());
+            
             var execute = new BinaryTreeSort<int>();
-            var temp = new Tree() {};
-            for (int index = 0; index < inputItem.Count; index++)
-            {
-                temp.insert(inputItem[index].ToString());
-            }
 
-            //var result = execute.BinaryTree(inputItem);
+            var result =  execute.BinarySorting(inputItem);
         }
     }
 
@@ -29,94 +18,85 @@ namespace Algorithm_Sort.Practical
     ///        Space : O(n)
     ///    Best Time : O(log n)
     ///   Worst Time : O(n²)（不平衡時）
-    ///         原理 : 
+    ///         原理 : 給定一組可比較陣列
+    ///                1. 將該組陣列轉換為二元樹
+    ///                2. 利用中序搜尋法找出節點
+    ///                3. 遍歷完該樹後中序的結果為排序後的結果
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BinaryTreeSort<T> where T : IComparable<T>
     {
-    }
-
-    public class BinaryTree
-    {
-        int value;
-        BinaryTree left;
-        BinaryTree right;
-
-        public BinaryTree(int[] values) : this(values, 0) 
-        { 
+        public List<int> BinarySorting(List<int> inputItem)
+        {
+            //1. 數組第一個節點為根結點
+            TreeNode root = new TreeNode(inputItem[0]);
+            //2. 建構二元樹
+            for (int index = 1; index < inputItem.Count(); index++)
+                BuildTree(root, inputItem[index]);            
+            //3. 中序排序結果
+            var result = new List<int>();
+            InOrderTraversal(root, ref result);
+            return result;
         }
 
-        BinaryTree(int[] values, int index)
+        /// <summary>
+        /// 建構二元樹
+        /// </summary>
+        public void BuildTree(TreeNode node, int value)
         {
-            Load(this, values, index);
-        }
-
-        void Load(BinaryTree tree, int[] values, int index)
-        {
-            this.value = values[index];
-            if (index * 2 + 1 < values.Length)
+            //左節點
+            if (value < node.value)
             {
-                this.left = new BinaryTree(values, index * 2 + 1);
-            }
-            if (index * 2 + 2 < values.Length)
-            {
-                this.right = new BinaryTree(values, index * 2 + 2);
-            }
-        }
-    }
-
-    public class Node
-    {
-        public string data;
-        public Node left { get; set; }
-        public Node right { get; set; }
-
-        public Node(string data)
-        {
-            this.data = data;
-        }
-    }
-
-    public class Tree
-    {
-        public Node root;
-        public Tree()
-        {
-            root = null;
-        }
-        public void insert(string data)
-        {
-            Node newItem = new Node(data);
-            if (root == null)
-            {
-                root = newItem;
-            }
-            else
-            {
-                TreeNode sub = new TreeNode();
-                Node current = root;
-                Node parent = null;
-                while (current != null)
+                if (node.LeftNode == null)
                 {
-                    parent = current;
-                    if (String.Compare(data, current.data) < 0)
-                    {
-                        current = current.left;
-                        if (current == null)
-                        {
-                            parent.left = newItem;
-                        }
-                    }
-                    else
-                    {
-                        current = current.right;
-                        if (current == null)
-                        {
-                            parent.right = newItem;
-                        }
-                    }
+                    node.LeftNode = new TreeNode(value);
+                }
+                else
+                {
+                    BuildTree(node.LeftNode, value);
                 }
             }
+            else//右節點
+            {
+                if (node.RightNode == null)
+                {
+                    node.RightNode = new TreeNode(value);
+                }
+                else
+                {
+                    BuildTree(node.RightNode, value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 中序
+        /// </summary>
+        private void InOrderTraversal(TreeNode node,ref List<int> container)
+        {
+            //走到Null直接捨棄
+            if (node == null)            
+                return;
+            InOrderTraversal(node.LeftNode, ref container);
+            container.Add(node.value);
+            InOrderTraversal(node.RightNode, ref container);
+        }
+    }
+
+    /// <summary>
+    /// 二元樹節點結構
+    /// </summary>
+    public class TreeNode
+    {
+        public int value;
+        public TreeNode LeftNode;
+        public TreeNode RightNode;
+
+        public TreeNode(int value)
+        {
+            this.value = value;
+            this.LeftNode = null;
+            this.RightNode = null;
         }
     }
 }

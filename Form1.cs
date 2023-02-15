@@ -12,6 +12,9 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var pigeonholeExecute = new PigeonholeExecute();
+            pigeonholeExecute.Execute();
+
             var heapSortExecute = new HeapSortExecute();
             heapSortExecute.Execute();
 
