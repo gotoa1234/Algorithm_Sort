@@ -23,9 +23,7 @@
     ///                Step 1. 構建Heap樹 (由高度最底層的開始往上堆積直到根)
     ///                Step 2. 由最底層開始遍歷每個節點，每個被遍歷時的節點視為"根"節點，找出比自己小的節點做替換
     ///                Step 3. 不斷重複2. 直到所有節點跑完即是排序結果
-    ///         備註 : Quick sort 時間複雜度雖然輸給 Heap Sort 但Heap 最大問題在頻繁"交換"，交換對程式是一件很傷的事情
-    ///                每交換一次是值與對應記憶體的位置變換，而Quick則是會進行檢核有必要時才"交換"，因此QuickSort仍會是
-    ///                較快的原因
+    ///         備註 : 但如果數據集較大，Heap Sort 會比Quick Sort更好，因為Heap Sort需要較少的記憶體而且在最壞情況下仍能保持較好的表現。
     /// </summary>
     public class HeapSort<T> where T : IComparable
     {

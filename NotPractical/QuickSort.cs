@@ -26,6 +26,7 @@ namespace Algorithm_Sort.NotPractical
     ///         原理 : 1. 利用一個樞紐值，每次將小於樞紐值的放左邊，大於樞紐值的放右邊
     ///                2. 然後以樞紐值切割兩邊，左、右半邊都跑1.步驟
     ///                3. 直到所有排序都由小額大返回
+    ///         備註：如果數據集較小，Quick sort 通常比較快
     /// </summary>
     public class QuickSort<T> where T : IComparable, new()
     {

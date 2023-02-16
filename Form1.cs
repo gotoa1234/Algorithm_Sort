@@ -12,6 +12,9 @@ namespace Algorithm_Sort
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var shellExecute = new ShellSortExecute();
+            shellExecute.Execute();
+
             var pigeonholeExecute = new PigeonholeExecute();
             pigeonholeExecute.Execute();
 
