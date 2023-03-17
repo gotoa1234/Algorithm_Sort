@@ -3,7 +3,7 @@
     public class SelectionSortExecute
     {
         /// <summary>
-        /// Bogo排序執行實例: 預期回傳17, 26, 38, 39, 59, 92
+        /// 選擇排序執行實例: 預期回傳17, 26, 38, 39, 59, 92
         /// </summary>
         public void Execute()
         {
@@ -24,11 +24,6 @@
     /// </summary>
     public class SelectionSort<T> where T : IComparable
     {
-        /// <summary>
-        /// Bogo排序 - Quantum bogodynamics / bozo sort / 猴子排序
-        /// </summary>
-        /// <param name="items">一串可比較的陣列 EX: [3,2,5,1,4]</param>
-        /// <returns>倒序的陣列 EX: [5,4,3,2,1]</returns>
         public List<T> SelectionAscendingSort(List<T> items)
         {
             int index = 0;

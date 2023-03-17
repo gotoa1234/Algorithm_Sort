@@ -5,8 +5,7 @@ namespace Algorithm_Sort.NotPractical
     { 
         public void Execute()
         {
-            List<int> inputItem = new() { 92, 17, 38, 59, 26, 39 };
-            inputItem = new() { 17, 26, 38, 39, 59, 92 };
+            List<int> inputItem = new() { 92, 17, 38, 59, 26, 39 };            
             var pancakeSort = new PancakeSort<int>();
             var result = pancakeSort.PancakeAscendingSorting(inputItem);
         }

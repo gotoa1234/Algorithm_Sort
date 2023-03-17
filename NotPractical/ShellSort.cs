@@ -9,7 +9,7 @@ namespace Algorithm_Sort.NotPractical
     public class ShellSortExecute
     {
         /// <summary>
-        /// Stooge 排序執行實例: 預期回傳6, 17, 26, 38, 39, 41, 59, 75, 92
+        /// ShellSort 排序執行實例: 預期回傳6, 17, 26, 38, 39, 41, 59, 75, 92
         /// </summary>
         public void Execute()
         {
